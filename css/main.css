@@ -1,9 +1,35 @@
 body{
     background-image: url("../media/chalkboard.jpg");
-    color: #dedede;
+    /*color: #dedede;*/
+    color: black;
 }
 
 .logo{
     font-size: 120%;
 }
 
+/* label color */
+.input label {
+    color: #000;
+}
+
+/* label focus color */
+.input input[type=text]:focus + label {
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+.input input[type=text]:focus {
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+/*.input input[type=text].valid {*/
+/*border-bottom: 1px solid #000;*/
+/*box-shadow: 0 1px 0 0 #000;*/
+/*}*/
+
+/*.input input[type=text].invalid {*/
+/*border-bottom: 1px solid #000;*/
+/*box-shadow: 0 1px 0 0 #000;*/
+/*}*/
