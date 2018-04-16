@@ -48,66 +48,76 @@
 
     <!-------------------------- Floating Button ------------------------------>
 
-    <!--<div class="fixed-action-btn">-->
-    <!--<a class="btn-floating btn-large waves-effect waves-light red modal-trigger" href="#modal1">-->
-    <!--<i class="large material-icons">add</i>-->
-    <!--</a>-->
-    <!--</div>-->
     <div class="fixed-action-btn">
-        <a class="btn-floating btn-large waves-effect waves-light red">
+        <a class="btn-floating btn-large waves-effect waves-light red modal-trigger" href="#modal1">
             <i class="large material-icons">add</i>
         </a>
     </div>
+    <!--<div class="fixed-action-btn">-->
+    <!--<a class="btn-floating btn-large waves-effect waves-light red">-->
+    <!--<i class="large material-icons">add</i>-->
+    <!--</a>-->
+    <!--</div>-->
 
     <!--------------------------- Modal for Adding Card ----------------------------->
 
-    <div id="modal1" class="modal">
+    <div id="modal1" class="modal bottom-sheet">
         <div class="modal-content">
             <div class="row">
-                <p style="color: black; margin-top: -2%">Preview:</p>
-                <div class="col s12">
-                    <div class="card blue-grey darken-1 small" style="height: 10rem">
-                        <div class="card-content white-text">
-                            <h2 class="card-title center-align" style="font-size: 200%">1000 12 12 12</h2>
-                            <span class="card-title center-align" style="font-size: 120%">Since I started Playing Tennis and Soccer</span>
-                        </div>
-                    </div>
-                </div>
+                <!--<p style="color: black; margin-top: -2%">Preview:</p>-->
+                <!--<div class="col s12">-->
+                <!--<div class="card blue-grey darken-1 small" style="height: 10rem">-->
+                <!--<div class="card-content white-text">-->
+                <!--<h2 class="card-title center-align" style="font-size: 200%">1000 12 12 12</h2>-->
+                <!--<span class="card-title center-align" style="font-size: 120%">Since I started Playing Tennis and Soccer</span>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
             </div>
             <div class="row">
                 <form>
 
                     <!------------------------------- Name ---------------------------->
-                    <!--<div class="row">-->
-                    <!--<div class="input-field col s9">-->
-                    <!--<i class="material-icons prefix">assignment</i>-->
-                    <!--<input id="card_name" type="text" class="validate" name="cardname"-->
-                    <!--placeholder="Card Name" required>-->
-                    <!--<label for="card_name" style="font-size: 1.4em">Task</label>-->
-                    <!--</div>-->
-                    <!--</div>-->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">event</i>
+                            <input id="event_name" type="text" class="validate" name="Event Name"
+                                   placeholder="Event Name" required>
+                            <label for="event_name" style="font-size: 1.4em">Add Event</label>
+                        </div>
+                    </div>
 
                     <!---------------------------- DatePicker ----------------------------->
-                    <!--<div class="row">-->
-                    <!--<div class="input-field col s9">-->
-                    <!--<i class="material-icons prefix">date_range</i>-->
-                    <!--&lt;!&ndash;<input id="date_pick" type="text" class="datepicker"&ndash;&gt;-->
-                    <!--&lt;!&ndash;placeholder="Select Date">&ndash;&gt;-->
-                    <!--&lt;!&ndash;<label for="date_pick">Deadline Day</label>&ndash;&gt;-->
-                    <!--</div>-->
-                    <!--</div>-->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">date_range</i>
+                            <input id="date_pick" type="text" class="datepicker validate"
+                                   placeholder="Select Date" required>
+                            <label for="date_pick" style="font-size: 1.4em">Deadline Day</label>
+                        </div>
+                    </div>
 
                     <!---------------------------- TimePicker ----------------------------->
-                    <!--<div class="row">-->
-                    <!--<div class="input-field col s9">-->
-                    <!--<i class="material-icons prefix">date_range</i>-->
-                    <!--<input id="time_pick" type="text" class="timepicker"-->
-                    <!--placeholder="Select Time">-->
-                    <!--<label for="time_pick">Deadline Time</label>-->
-                    <!--</div>-->
-                    <!--</div>-->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">access_time</i>
+                            <input id="time_pick" type="text" class="timepicker"
+                                   placeholder="Select Time">
+                            <label for="time_pick" style="font-size: 1.4em">Deadline Time</label>
+                        </div>
+                    </div>
 
                 </form>
+                <p style="color: black; margin-top: -2%">Preview:</p>
+                <div class="col s7 push-s2">
+                    <div class="card blue-grey darken-1 card_height">
+                        <div class="card-content white-text">
+                            <p class="center-align card_date_counter"
+                               style="margin-top: -1%; margin-left: -10%; margin-right: -10%"></p>
+                            <p class="center-align card_event_name"></p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -121,42 +131,28 @@
     <!--------------------------- Cards ----------------------------->
 
     <div class="row">
-        <div class="col s6">
-            <div class="card blue-grey darken-1" style="height: 20rem">
-                <div class="card-content white-text">
-                    <span></span>
-                    <span class="card-title center-align"
-                          style="font-size: 2em; margin-top: -1%; margin-left: -10%; margin-right: -10%">1000 12 12 12</span>
-                    <!--<br>-->
-                    <!--<span class="card-title center-align"-->
-                    <!--style="font-size: 1.4em; margin-left: -10%; margin-right: -10%">Since I started Playing Tennis and Soccer</span>-->
-                    <form>
-                        <div class="row">
-                            <div class="input">
-                                <input value="Since I" id="card_name" type="text" class="center-align" name="cardname"
-                                       required style="font-size: 2.5em">
-                                <!--<label for="card_name" style="font-size: 1.4em">Task</label>-->
-                            </div>
-                        </div>
-
-                        <!--<input id="date_pick" type="text" class="datepicker"-->
-                        <!--placeholder="Select Date">-->
-                        <!--<label for="date_pick">Deadline Day</label>-->
-                    </form>
-                </div>
-                <!--<div class="card-action">-->
-                <!--<a href="#">This is a link</a>-->
-                <!--</div>-->
-            </div>
-        </div>
+        <!--<div class="col s6">-->
+        <!--<div class="card blue-grey darken-1 card_height">-->
+        <!--<div class="card-content white-text">-->
+        <!--<p class="center-align test" style="margin-top: -1%; margin-left: -10%; margin-right: -10%"></p>-->
+        <!--&lt;!&ndash;<br>&ndash;&gt;-->
+        <!--<p class="center-align card_event_name"></p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;<div class="card-action">&ndash;&gt;-->
+        <!--&lt;!&ndash;<a href="#">This is a link</a>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--</div>-->
+        <!--</div>-->
     </div>
 </section>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="js/app.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<script src="js/init.js"></script>
+<!--<script src="js/variables.js"></script>-->
+<script src="js/app.js"></script>
 
 </body>
 </html>

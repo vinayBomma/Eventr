@@ -1,35 +1,40 @@
-body{
+body {
     background-image: url("../media/chalkboard.jpg");
     /*color: #dedede;*/
     color: black;
 }
 
-.logo{
+.logo {
     font-size: 120%;
 }
 
-/* label color */
-.input label {
-    color: #000;
+.card_event_name {
+    font-size: 1.3em;
+    font-weight: 300;
+    line-height: 32px;
+    margin: 0 -10% 0 -10%;
 }
 
-/* label focus color */
-.input input[type=text]:focus + label {
-    border-bottom: none !important;
-    box-shadow: none !important;
-}
-
-.input input[type=text]:focus {
-    border-bottom: none !important;
-    box-shadow: none !important;
-}
-
-/*.input input[type=text].valid {*/
-/*border-bottom: 1px solid #000;*/
-/*box-shadow: 0 1px 0 0 #000;*/
+/*.card_time{*/
+/*font-size: 2em;*/
+/*font-weight: 300;*/
+/*!*line-height: 32px;*!*/
+/*!*margin: -1% 0% 0 0;*!*/
+/*margin-left: -5px;*/
+/*margin-right: -10%;*/
+/*!*padding-bottom: 6%;*!*/
 /*}*/
 
-/*.input input[type=text].invalid {*/
-/*border-bottom: 1px solid #000;*/
-/*box-shadow: 0 1px 0 0 #000;*/
-/*}*/
+.card_date_counter {
+    font-size: 2em;
+    font-weight: 300;
+}
+
+.card_height {
+    height: 12rem;
+}
+
+.some {
+    margin-left: -10%;
+    margin-right: -10%;
+}
