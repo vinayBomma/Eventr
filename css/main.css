@@ -22,6 +22,15 @@ body {
     /*margin: -1% -10% 0 -10%;*/
 }
 
+.icon{
+    font-size: 225%;
+    color: black;
+}
+
 .card_height {
-    height: 12rem;
+    height: 100%;
+}
+
+.card_details{
+    margin-bottom: 1%;
 }
