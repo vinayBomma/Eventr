@@ -28,7 +28,7 @@ class INIT {
                     let dateInput = document.getElementById('date_pick');
                     let dateValue = new Date(dateInput.value).getDate();
                     let counter = (new Date().getDate() - dateValue);
-                    cardDateCounter.appendChild(document.createTextNode(counter))
+                    cardDateCounter.appendChild(document.createTextNode(counter));
                 }
             });
         }
@@ -37,19 +37,23 @@ class INIT {
             let elem = document.querySelector('.timepicker');
             let instance = M.Timepicker.init(elem, {
                 onCloseEnd: () => {
-                    console.log('this is working!');
+                    alert('time picker to the rescue!')
                 },
             });
         }
 
-        eventName.addEventListener('keyup', function () {
-            cardEvent.textContent = eventName.value;
-        });
+        function previewText() {
+            eventName.addEventListener('keyup', function () {
+                cardEvent.textContent = eventName.value;
+            });
+        }
+
 
         sideNav();
         fabBtn();
         modal();
         datePicker();
+        previewText();
         timePicker();
     }
 }

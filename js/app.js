@@ -2,10 +2,14 @@ const init = new INIT();
 init.startInit();
 
 const datePick = document.getElementById('date_pick');
-const timePick = document.getElementById('time_pick');
+// const timePick = document.getElementById('time_pick');
 const eventName = document.getElementById('event_name');
 const eventCard = document.querySelector('.event_card');
 const submitBtn = document.querySelector('.submit_btn');
+
+const cardDateCounter = document.querySelector('.card_date_counter');
+const cardEvent = document.querySelector('.card_event_name');
+
 
 let card, card_div, card_sub_div, event_title, event_date_counter;
 
@@ -16,7 +20,7 @@ function createDivStructure() {
     card_div = document.createElement('div');
     card_sub_div = document.createElement('div');
 
-    card.className = 'col s6';
+    card.className = 'col s12 l4 xl3';
     card_div.className = 'card blue-grey darken-1 hoverable card_height';
     card_sub_div.className = 'card-content white-text';
     card_div.appendChild(card_sub_div);
@@ -28,8 +32,7 @@ function createDivStructure() {
 function addEvent() {
     event_date_counter = document.createElement('p');
     event_date_counter.className = 'center-align card_date_counter';
-    event_date_counter.setAttribute('margin', '-1% -10% 0 -10%');
-    event_date_counter.appendChild(document.createTextNode(datePick.value));
+    event_date_counter.appendChild(document.createTextNode(new Date().getDate() - new Date(datePick.value).getDate()));
 
     event_title = document.createElement('p');
     event_title.className = 'center-align card_event_name';
@@ -38,6 +41,15 @@ function addEvent() {
     card_sub_div.appendChild(event_date_counter);
     card_sub_div.appendChild(event_title);
     eventCard.appendChild(card);
+}
+
+// --------------------------- Clear Values ---------------------------------
+
+function clear_values() {
+    datePick.value = '';
+    eventName.value = '';
+    cardDateCounter.textContent = '';
+    cardEvent.textContent = '';
 }
 
 // --------------------------- Validate Form ------------------------------
@@ -60,6 +72,7 @@ function form_validator() {
         submitBtn.classList.add('modal-close');
         createDivStructure();
         addEvent();
+        clear_values();
         M.toast({html: 'New Event Created!', displayLength: '2000', classes: 'rounded'});
     }
 }

@@ -20,7 +20,7 @@
 
 <!-------------------------------------- Navigation -------------------------------------->
 <nav>
-    <div class="nav-wrapper">
+    <div class="nav-wrapper cyan">
         <a href="#" class="brand-logo center"><span class="logo">Since</span></a>
         <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
     </div>
@@ -37,10 +37,14 @@
             <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
         </div>
     </li>
+    <li><a href="#!"><i class="material-icons waves-effect">calendar</i>Past Events</a></li>
+    <li><a href="#!"><i class="material-icons waves-effect">calendar</i>Future Events</a></li>
+    <div class="divider"></div>
     <li><a href="#!"><i class="material-icons waves-effect">settings</i>Settings</a></li>
     <li><a href="#!"><i class="material-icons waves-effect">show_chart</i>Statistics</a></li>
     <div class="divider"></div>
-    </li>
+    <li><a href="#!"><i class="material-icons waves-effect">bug_report</i>Report Bug</a></li>
+    <li><a href="#!"><i class="material-icons waves-effect">feedback</i>Feedback</a></li>
     <li><a href="#!"><i class="material-icons waves-effect">info</i>About</a></li>
 </ul>
 
@@ -53,27 +57,11 @@
             <i class="large material-icons">add</i>
         </a>
     </div>
-    <!--<div class="fixed-action-btn">-->
-    <!--<a class="btn-floating btn-large waves-effect waves-light red">-->
-    <!--<i class="large material-icons">add</i>-->
-    <!--</a>-->
-    <!--</div>-->
 
     <!--------------------------- Modal for Adding Card ----------------------------->
 
     <div id="modal1" class="modal bottom-sheet">
         <div class="modal-content">
-            <div class="row">
-                <!--<p style="color: black; margin-top: -2%">Preview:</p>-->
-                <!--<div class="col s12">-->
-                <!--<div class="card blue-grey darken-1 small" style="height: 10rem">-->
-                <!--<div class="card-content white-text">-->
-                <!--<h2 class="card-title center-align" style="font-size: 200%">1000 12 12 12</h2>-->
-                <!--<span class="card-title center-align" style="font-size: 120%">Since I started Playing Tennis and Soccer</span>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</div>-->
-            </div>
             <div class="row">
                 <form>
 
@@ -81,7 +69,7 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">event</i>
-                            <input id="event_name" type="text" class="validate" name="Event Name"
+                            <input id="event_name" type="text" data-length="50" class="validate" name="Event Name"
                                    placeholder="Event Name" required>
                             <label for="event_name" style="font-size: 1.4em">Add Event</label>
                         </div>
@@ -108,14 +96,17 @@
                     </div>
 
                 </form>
-                <p style="color: black; margin-top: -2%">Preview:</p>
+                <p>Preview:</p>
                 <div class="col s7 push-s2">
                     <div class="card blue-grey darken-1 card_height">
                         <div class="card-content white-text">
-                            <p class="center-align card_date_counter"
-                               style="margin-top: -1%; margin-left: -10%; margin-right: -10%"></p>
+                            <p class="center-align card_date_counter"></p>
                             <p class="center-align card_event_name"></p>
                         </div>
+                        <!--<div class="card-action">-->
+                            <!--<a href="#">This is a link</a>-->
+                            <!--<a href="#">This is a link</a>-->
+                        <!--</div>-->
                     </div>
                 </div>
             </div>
@@ -135,7 +126,7 @@
         <!--<div class="col s6">-->
         <!--<div class="card blue-grey darken-1 card_height">-->
         <!--<div class="card-content white-text">-->
-        <!--<p class="center-align card_date_counter" style="margin-top: -1%; margin-left: -10%; margin-right: -10%"></p>-->
+        <!--<p class="center-align card_date_counter"></p>-->
         <!--&lt;!&ndash;<br>&ndash;&gt;-->
         <!--<p class="center-align card_event_name"></p>-->
         <!--</div>-->
@@ -146,6 +137,34 @@
         <!--</div>-->
     </div>
 </section>
+
+
+<!-------------------------- GOOGLE ANALYTICS ------------------------------------->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117782369-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-117782369-2');
+</script>
+
+<!-- -------------------------------  FIREBASE INIT --------------------------------->
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script>
+    var config = {
+        apiKey: "AIzaSyAQOb5cIHYdvPjBpqgYqnpMfOKKMEoWd_k",
+        authDomain: "sincedaysapp.firebaseapp.com",
+        databaseURL: "https://sincedaysapp.firebaseio.com",
+        projectId: "sincedaysapp",
+        storageBucket: "",
+        messagingSenderId: "185299716511"
+    };
+    firebase.initializeApp(config);
+</script>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
