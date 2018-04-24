@@ -104,9 +104,9 @@
                             <p class="center-align card_event_name"></p>
                         </div>
                         <!--<div class="card-action valign-wrapper">-->
-                            <!--&lt;!&ndash;<a href="#">This is a link</a>&ndash;&gt;-->
-                            <!--<a href="#"><i class="material-icons small">code</i></a>-->
-                            <!--<a href="#">This is a link</a>-->
+                        <!--&lt;!&ndash;<a href="#">This is a link</a>&ndash;&gt;-->
+                        <!--<a href="#"><i class="material-icons small">code</i></a>-->
+                        <!--<a href="#">This is a link</a>-->
                         <!--</div>-->
                     </div>
                 </div>
@@ -115,9 +115,23 @@
         </div>
 
         <div class="modal-footer">
-            <a href="#!" class="waves-effect waves-light btn modal-action modal-close">Cancel</a>
+            <a href="#!" class="waves-effect waves-light btn modal-action modal-close cancel_btn">Cancel</a>
             <a href="#!" class="waves-effect waves-light btn modal-action modal-close submit_btn" name="action">Add
                 Task</a>
+        </div>
+    </div>
+
+    <!--------------------------- Modal for Deleting Card ---------------------------->
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <div class="row">
+                <h5>Are You Sure You Want To Delete?</h5>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-light btn">Disagree</a>
+            <a href="#!" class="modal-action modal-close waves-effect waves-light btn delete_btn">Agree</a>
         </div>
     </div>
 
@@ -134,7 +148,11 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117782369-2"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
     gtag('js', new Date());
 
     gtag('config', 'UA-117782369-2');

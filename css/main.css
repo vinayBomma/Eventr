@@ -8,6 +8,10 @@ body {
     font-size: 120%;
 }
 
+.blue{
+    background-color: cyan;
+}
+
 
 .card_event_name {
     font-size: 1.3em;
@@ -28,7 +32,7 @@ body {
 }
 
 .card_height {
-    height: 100%;
+    height: 150%;
 }
 
 .card_details{

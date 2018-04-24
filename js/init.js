@@ -16,9 +16,10 @@ class INIT {
         }
 
         function modal() {
-            let elem = document.querySelector('.modal');
+            let elem = document.querySelectorAll('.modal');
             let instance = M.Modal.init(elem);
         }
+
 
         function datePicker() {
 
