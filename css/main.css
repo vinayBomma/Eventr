@@ -1,6 +1,5 @@
 body {
     background-image: url("../media/chalkboard.jpg");
-    /*color: #dedede;*/
     color: black;
 }
 
@@ -8,22 +7,25 @@ body {
     font-size: 120%;
 }
 
-.blue{
-    background-color: cyan;
-}
-
-
 .card_event_name {
-    font-size: 1.3em;
+    font-size: 1.4em;
     font-weight: 300;
-    line-height: 32px;
-    margin: 0 -10% 0 -10%;
 }
 
 .card_date_counter {
-    font-size: 2em;
+    font-size: 2.2em;
     font-weight: 300;
-    /*margin: -1% -10% 0 -10%;*/
+}
+
+hr.style14 {
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, #f0f0f0, #b2b1b1, #f0f0f0);
+    background-image: -moz-linear-gradient(left, #f0f0f0, #b2b1b1, #f0f0f0);
+    background-image: -ms-linear-gradient(left, #f0f0f0, #b2b1b1, #f0f0f0);
+    background-image: -o-linear-gradient(left, #f0f0f0, #b2b1b1, #f0f0f0);
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .icon{
@@ -33,8 +35,15 @@ body {
 
 .card_height {
     height: 150%;
+    background-image: -webkit-linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url("../media/tennis.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url("../media/tennis.jpg");
+    background-size: cover;
 }
 
 .card_details{
     margin-bottom: 1%;
+}
+
+.titleCard {
+    margin-top: -10%;
 }

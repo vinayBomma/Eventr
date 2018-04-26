@@ -29,7 +29,7 @@ class INIT {
                     let dateInput = document.getElementById('date_pick');
                     let dateValue = new Date(dateInput.value).getDate();
                     let counter = (new Date().getDate() - dateValue);
-                    cardDateCounter.appendChild(document.createTextNode(counter));
+                    cardDateCounter.innerText = counter + 'd ' + '0h ' + '0m ' + '0s';
                 }
             });
         }
@@ -37,9 +37,10 @@ class INIT {
         function timePicker() {
             let elem = document.querySelector('.timepicker');
             let instance = M.Timepicker.init(elem, {
+                twelveHour: false,
                 onCloseEnd: () => {
-                    alert('time picker to the rescue!')
-                },
+                    alert('timePicker to rescue')
+                }
             });
         }
 
