@@ -1,42 +1,22 @@
 {
   "short_name": "Since",
   "name": "Since",
-  "display": "standalone",
   "orientation": "portrait",
-  "background": "#4256f4",
-  "theme_color": "#80e5a5",
   "description": "Since Is A Days Counter App. Keep Track Of Your Future and Past Events with Since.",
   "icons": [
     {
-      "src": "/img/task48.png",
-      "type": "image/png",
-      "sizes": "48x48"
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
     },
     {
-      "src": "/img/task72.png",
-      "type": "image/png",
-      "sizes": "72x72"
-    },
-    {
-      "src": "/img/task96.img",
-      "type": "image/png",
-      "sizes": "96x96"
-    },
-    {
-      "src": "/img/task144.png",
-      "type": "image/png",
-      "sizes": "144x144"
-    },
-    {
-      "src": "/img/task168.png",
-      "type": "image/png",
-      "sizes": "168x168"
-    },
-    {
-      "src": "/img/task192.img",
-      "type": "image/png",
-      "sizes": "192x192"
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
-  "start_url": "index.html?launcher=true"
+  "theme_color": "#385e63",
+  "background_color": "#385e63",
+  "display": "standalone",
+  "start_url": "/?homescreen=1"
 }
