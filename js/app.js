@@ -13,8 +13,7 @@ const deleteBtn = document.querySelector('.delete_btn');
 const cardDateCounter = document.querySelector('.card_date_counter');
 const cardEvent = document.querySelector('.card_event_name');
 
-let card, card_div, card_sub_div, card_sub_div2, card_child_div, days, hours, mins, secs, dateValue;
-let time_value, date_value, event_value;
+let card, card_div, card_sub_div, card_sub_div2, card_child_div, time_value, event_value;
 
 //----------------------- Create Div Structure --------------------------------
 
@@ -40,30 +39,11 @@ function createDivStructure() {
 // -------------------------------  Adding Event -----------------------------------
 
 function addEvent() {
+    counterIncrement(datePick.value, timePick.value, card_sub_div);
 
-    // -------------------------  Counter Logic --------------------------------
-
-    (function counterIncrement() {
-        dateValue = new Date(datePick.value + ' ' + timePick.value + ':00').getTime();
-
-        event_value = eventName.value;
-        date_value = datePick.value;
-        time_value = timePick.value;
-
-        setInterval(() => {
-            let now = new Date().getTime();
-            let distance = now - dateValue;
-
-            days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            secs = Math.floor((distance % (1000 * 60)) / 1000);
-
-            card_sub_div.innerHTML = `
-            <p class="center-align card_date_counter">${days}d ${hours}h ${mins}m ${secs}s</p>
-            `
-        }, 1000);
-    })();
+    event_value = eventName.value;
+    date_value = datePick.value;
+    time_value = timePick.value;
 
     card_sub_div2.innerHTML = `
     <hr class="style14">
@@ -74,8 +54,41 @@ function addEvent() {
     <a href="#"><i class="material-icons icon" id="icon1">edit</i></a>
     <a href="#"><i class="material-icons icon" id="icon3">delete</i></a>
     `;
-
     eventCard.appendChild(card);
+
+    eventListeners();
+}
+
+//--------------------------- Counter Logic -----------------------------
+
+
+function counterIncrement(date, time, element) {
+    let dateValue = new Date(date + ' ' + time + ':00').getTime();
+
+    setInterval(() => {
+        var now = new Date().getTime();
+
+        var distance;
+
+        if (dateValue > Date.now()){
+            distance = dateValue - now;
+        } else{
+            distance = now - dateValue;
+        }
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var secs = Math.floor((distance % (1000 * 60)) / 1000);
+
+        element.innerHTML =`<p class="center-align card_date_counter">${days}d ${hours}h ${mins}m ${secs}s</p>`
+    }, 1000);
+}
+
+//---------------------------- Event Listeners -------------------------------
+
+function eventListeners() {
+
     card.addEventListener('mouseenter', (e) => {
         e.target.firstChild.appendChild(card_child_div);
 
@@ -125,6 +138,7 @@ function addEvent() {
     })
 }
 
+
 // --------------------------- Clear Values ---------------------------------
 
 function clear_values() {
@@ -151,10 +165,6 @@ function form_validator() {
         M.toast({html: 'Please Add Date!', displayLength: '2000', classes: 'rounded'});
         submitBtn.classList.remove('modal-close')
 
-    } else if ((new Date(datePick.value)) > new Date()) {
-        M.toast({html: 'Date Cannot Be In Future!', displayLength: '2000', classes: 'rounded'});
-        submitBtn.classList.remove('modal-close')
-
     } else if (isNaN(new Date(datePick.value))) {
         M.toast({html: 'Please Select A Valid Date! ', displayLength: '2000', classes: 'rounded'});
         submitBtn.classList.remove('modal-close')
@@ -168,9 +178,9 @@ function form_validator() {
         submitBtn.classList.remove('modal-close')
 
     } else {
+        submitBtn.classList.add('modal-close');
         createDivStructure();
         addEvent();
-        submitBtn.classList.add('modal-close');
         clear_values();
         M.toast({html: 'New Event Created!', displayLength: '2000', classes: 'rounded'});
     }
