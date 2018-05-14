@@ -1,0 +1,16 @@
+{
+  "name": "since",
+  "version": "1.0.0",
+  "description": "Keep Track of Your Future & Past Events with Since",
+  "main": "server.js",
+  "scripts": {
+    "test": "",
+    "start": "node server.js"
+  },
+  "author": "Vinay Bomma",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0"
+  }
+}

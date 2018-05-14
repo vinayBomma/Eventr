@@ -4,6 +4,8 @@ const path = require('path');
 
 let app = express();
 
+const port = process.env.PORT || 3000;
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.engine('handlebars', exphbs({
@@ -19,6 +21,6 @@ app.get('/about', (req, res) => {
     res.render('about')
 });
 
-app.listen(3000, () => {
-    console.log('Server is UP!')
+app.listen(port, () => {
+    console.log('Server is UP! on port ', port);
 });

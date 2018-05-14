@@ -1,4 +1,5 @@
 .idea/
 firebase-debug.log
-media/chalkboard.jpg
-media/tennis.jpg
+node_modules
+browserconfig.xml
+package-lock.json
