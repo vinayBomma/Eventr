@@ -13,7 +13,7 @@ const deleteBtn = document.querySelector('.delete_btn');
 const cardDateCounter = document.querySelector('.card_date_counter');
 const cardEvent = document.querySelector('.card_event_name');
 
-let card, card_div, card_sub_div, card_sub_div2, card_child_div, time_value, event_value;
+let card, card_div, card_sub_div, card_sub_div2, card_child_div, time_value, event_value, date_val;
 
 //----------------------- Create Div Structure --------------------------------
 
@@ -42,7 +42,7 @@ function addEvent() {
     counterIncrement(datePick.value, timePick.value, card_sub_div);
 
     event_value = eventName.value;
-    date_value = datePick.value;
+    date_val = datePick.value;
     time_value = timePick.value;
 
     card_sub_div2.innerHTML = `
