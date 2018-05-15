@@ -32,37 +32,29 @@ app.set('view engine', 'handlebars');
 // app.use(methodOverride('_method'));
 
 app.get('/', (req, res) => {
-    res.render('index');
-    // res.send('hell yeah')
+    Event.find({})
+        .then((event) => {
+            res.render('index', {
+                event,
+            });
+        });
 });
 
-app.get('/past', (req, res) => {
-    res.send('direct')
-    // res.render('past');
-    // res.send('hsas to work dammit')
-    // console.log('This is title: ' ,req.body.title);
-    // console.log('This is Event: ' ,req.body.eventName);
-});
-
-app.post('/past', (req, res) => {
+app.post('/', (req, res) => {
     const newEvent = {
         title: req.body.eventName,
-        // dateTime: req.body.date,
+        date: (req.body.date + ' ' + req.body.time + ':00'),
     };
 
-    console.log(req.body.eventName);
     new Event(newEvent).save()
-        .then((result) => {
-            res.send(result);
-            // res.redirect('/past');
+        .then(() => {
+            res.redirect('/');
         }).catch((err) => {
             res.status(400).send(err)
     })
-    // res.send('with post')
 });
 
 app.get('/about', (req, res) => {
-    // res.send('hope you are working');
     res.render('about')
 });
 

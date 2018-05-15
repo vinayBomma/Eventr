@@ -50,7 +50,6 @@ class INIT {
             });
         }
 
-
         sideNav();
         fabBtn();
         modal();
