@@ -4,6 +4,8 @@ class INIT {
         const cardDateCounter = document.querySelector('.card_date_counter');
         const eventName = document.getElementById('event_name');
         const cardEvent = document.querySelector('.card_event_name');
+        // const name = document.getElementById('name');
+        // const message = document.getElementById('message');
 
         function sideNav() {
             let elem = document.querySelector('.sidenav');
@@ -18,6 +20,7 @@ class INIT {
         function modal() {
             let elem = document.querySelectorAll('.modal');
             let instance = M.Modal.init(elem);
+            $('input#name, textarea#message, input#event_name').characterCounter();
         }
 
 
@@ -38,9 +41,9 @@ class INIT {
             let elem = document.querySelector('.timepicker');
             let instance = M.Timepicker.init(elem, {
                 twelveHour: false,
-                onCloseEnd: () => {
-                    alert('timePicker to rescue')
-                }
+                // onCloseEnd: () => {
+                //     alert('timePicker to rescue')
+                // }
             });
         }
 

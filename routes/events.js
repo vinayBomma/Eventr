@@ -6,11 +6,27 @@ require('../models/event');
 const Event = mongoose.model('events');
 
 router.get('/', (req, res) => {
-    res.send('Direct past')
+    Event.find({})
+        .then((event) => {
+            res.render('index', {
+                event,
+            });
+        });
 });
 
 router.post('/', (req, res) => {
-    res.send('Through button past');
+    let dateVal = new Date(req.body.date + ' ' + req.body.time + ':00').getTime();
+    const newEvent = {
+        title: req.body.eventName,
+        date: dateVal,
+    };
+
+    new Event(newEvent).save()
+        .then(() => {
+            res.redirect('/');
+        }).catch((err) => {
+        res.status(400).send('Error' , err)
+    });
 });
 
 module.exports = router;
