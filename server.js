@@ -16,7 +16,8 @@ let app = express();
 const events = require('./routes/events');
 const misc = require('./routes/misc');
 
-mongoose.connect('mongodb://localhost:27017/since')
+// mongoose.connect('mongodb://localhost:27017/since')
+mongoose.connect("mongodb://vinayBomma:CzC981ipjnp0@ds233320.mlab.com:33320/since")
     .then(() => console.log('MongoDB connected!'))
     .catch((e) => console.log("MongoDB couldn't connect", e));
 
