@@ -13,6 +13,9 @@ const port = process.env.PORT || 3000;
 
 let app = express();
 
+require('public/js/app');
+
+
 const events = require('./routes/events');
 const misc = require('./routes/misc');
 

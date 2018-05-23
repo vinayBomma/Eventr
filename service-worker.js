@@ -4,10 +4,10 @@ self.addEventListener('install', function (e) {
         caches.open('since').then(function (cache) {
             return cache.addAll([
                 '/',
-                '/index.html',
                 '/?homescreen=1',
-                '/css/main.css',
-                '/js/app.js',
+                'public/js/app.js',
+                'public/js/init.js',
+                'public/css/main.css',
             ])
         })
     )
@@ -20,3 +20,4 @@ self.addEventListener('fetch', function (event) {
         })
     );
 });
+
