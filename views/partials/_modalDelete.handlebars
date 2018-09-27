@@ -1,11 +1,19 @@
-<div id="modal2" class="modal">
-    <div class="modal-content">
-        <div class="row">
-            <h5>Are You Sure You Want To Delete?</h5>
+{{#each event}}
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <div class="row">
+                <h5>Are You Sure You Want To Delete The Event?</h5>
+            </div>
         </div>
+        <form method="post" action="/{{id}}?_method=DELETE">
+            <input type="hidden" name="_method" value="DELETE">
+            <div class="modal-footer">
+                <button class="modal-action modal-close waves-effect waves-light btn">No</button>
+                <form method="post" action="/{{id}}?_method=DELETE">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button class="modal-action modal-close waves-effect waves-light btn delete_btn" type="submit" value="DELETE">Yes</button>
+                </form>
+            </div>
+        </form>
     </div>
-    <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-light btn">No</a>
-        <a href="#!" class="modal-action modal-close waves-effect waves-light btn delete_btn">Yes</a>
-    </div>
-</div>
+{{/each}}

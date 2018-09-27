@@ -5,9 +5,12 @@ const datePick = document.getElementById('date_pick');
 const timePick = document.getElementById('time_pick');
 const eventName = document.getElementById('event_name');
 const submitBtn = document.querySelector('.submit_btn');
+const deleteBtn = document.querySelector('.delete_btn');
 const dateCardArray = Array.prototype.slice.call(document.querySelectorAll('.dateCard'));
+console.log(`DateArray is ${dateCardArray}`);
 const dateCard = document.querySelectorAll('.dateCard')[0];
 
+console.log('this is awesome')
 // -------------------------------- Counter Logic ----------------------------
 
 function counterIncrement(date, element) {
@@ -92,6 +95,13 @@ dateCardArray.forEach(domLoop);
 //     })
 // }
 
+function deleteCard() {
+    deleteBtn.addEventListener('click', (e) => {
+
+    })
+}
+
+deleteCard();
 // --------------------------- Validate Form ------------------------------
 
 function form_validator() {

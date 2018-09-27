@@ -34,10 +34,12 @@ hr.style14 {
 }
 
 .card_height {
-    height: 150%;
+    /*height: 150%;*/
     background-image: -webkit-linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url("../media/tennis.jpg");
     background-image: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url("../media/tennis.jpg");
     background-size: cover;
+    min-height: 175px;
+    max-height: 175px;
 }
 
 .card_details{

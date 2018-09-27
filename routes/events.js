@@ -14,6 +14,13 @@ router.get('/', (req, res) => {
         });
 });
 
+// router.put('/edit:id', (req, res) => {
+//     Event.findOne({_id: req.params.id})
+//         .then(() => {
+//             res.send('Edit page')
+//         })
+// });
+
 router.post('/', (req, res) => {
     let dateVal = new Date(req.body.date + ' ' + req.body.time + ':00').getTime();
     const newEvent = {
@@ -25,7 +32,17 @@ router.post('/', (req, res) => {
         .then(() => {
             res.redirect('/');
         }).catch((err) => {
-        res.status(400).send('Error' , err)
+        res.status(400).send('Error', err)
+    });
+});
+
+
+router.delete('/:id', (req, res) => {
+    Event.remove({_id: req.params.id})
+        .then(() => {
+            res.redirect('/');
+        }).catch((err) => {
+        res.status(400).send('Error', err)
     });
 });
 
