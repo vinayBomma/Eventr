@@ -5,10 +5,9 @@ self.addEventListener('install', function (e) {
             return cache.addAll([
                 '/',
                 '/?homescreen=1',
-                '/public/js/app.js',
-                '/public/js/init.js',
-                '/public/css/main.css',
-                '/index.html'
+                '/js/app.js',
+                '/js/init.js',
+                '/css/main.css'
             ])
         })
     )
