@@ -3,6 +3,9 @@
   "name": "Events In Days",
   "orientation": "portrait",
   "description": "Since Is A Days Counter App. Keep Track Of Your Future and Past Events with Since.",
+  "theme_color": "#00acc1",
+  "background_color": "#385e63",
+  "display": "standalone",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -15,8 +18,5 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#00acc1",
-  "background_color": "#385e63",
-  "display": "standalone",
   "start_url": "/?homescreen=1"
 }

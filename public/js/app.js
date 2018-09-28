@@ -10,7 +10,6 @@ const dateCardArray = Array.prototype.slice.call(document.querySelectorAll('.dat
 console.log(`DateArray is ${dateCardArray}`);
 const dateCard = document.querySelectorAll('.dateCard')[0];
 
-console.log('this is awesome')
 // -------------------------------- Counter Logic ----------------------------
 
 function counterIncrement(date, element) {

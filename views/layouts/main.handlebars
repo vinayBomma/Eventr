@@ -27,34 +27,34 @@
 
 <!--&lt;!&ndash;------------------------ GOOGLE ANALYTICS -----------------------------------&ndash;&gt;-->
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117782369-2"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
+<!--&lt;!&ndash; Global site tag (gtag.js) - Google Analytics &ndash;&gt;-->
+<!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117782369-2"></script>-->
+<!--<script>-->
+    <!--window.dataLayer = window.dataLayer || [];-->
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
+    <!--function gtag() {-->
+        <!--dataLayer.push(arguments);-->
+    <!--}-->
 
-    gtag('js', new Date());
+    <!--gtag('js', new Date());-->
 
-    gtag('config', 'UA-117782369-2');
-</script>
+    <!--gtag('config', 'UA-117782369-2');-->
+<!--</script>-->
 
 <!-- -------------------------------  FIREBASE INIT --------------------------------->
 
-<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-<script>
-    var config = {
-        apiKey: "AIzaSyAQOb5cIHYdvPjBpqgYqnpMfOKKMEoWd_k",
-        authDomain: "sincedaysapp.firebaseapp.com",
-        databaseURL: "https://sincedaysapp.firebaseio.com",
-        projectId: "sincedaysapp",
-        storageBucket: "",
-        messagingSenderId: "185299716511"
-    };
-    firebase.initializeApp(config);
-</script>
+<!--<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>-->
+<!--<script>-->
+    <!--var config = {-->
+        <!--apiKey: "AIzaSyAQOb5cIHYdvPjBpqgYqnpMfOKKMEoWd_k",-->
+        <!--authDomain: "sincedaysapp.firebaseapp.com",-->
+        <!--databaseURL: "https://sincedaysapp.firebaseio.com",-->
+        <!--projectId: "sincedaysapp",-->
+        <!--storageBucket: "",-->
+        <!--messagingSenderId: "185299716511"-->
+    <!--};-->
+    <!--firebase.initializeApp(config);-->
+<!--</script>-->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -66,11 +66,11 @@
 
 <script>
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service-worker.js')
+        navigator.serviceWorker.register('./../service-worker.js')
                 .then(function () {
                     console.log('Service Worker Was Registered!');
-                }).catch(function () {
-            console.log('Service Worker Was Not Registered!')
+                }).catch(function (e) {
+            console.log(`Error: ${e}`)
         });
     }
 </script>

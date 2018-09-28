@@ -7,7 +7,6 @@ self.addEventListener('install', function (e) {
                 '/?homescreen=1',
                 '/public/js/app.js',
                 '/public/js/init.js',
-                '/server.js',
                 '/public/css/main.css',
                 '/index.html'
             ])

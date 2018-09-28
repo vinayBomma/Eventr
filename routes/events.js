@@ -14,11 +14,8 @@ router.get('/', (req, res) => {
         });
 });
 
-// router.put('/edit:id', (req, res) => {
-//     Event.findOne({_id: req.params.id})
-//         .then(() => {
-//             res.send('Edit page')
-//         })
+// router.get('/webmanifest.json', (req, res) => {
+//    res.send('awesome')
 // });
 
 router.post('/', (req, res) => {

@@ -16,7 +16,6 @@ router.get('/feedback', (req, res) => {
 });
 
 router.get('/bug', (req, res) => {
-    // res.render('reportbug')
     res.render('Report Bug!');
 });
 
