@@ -5,6 +5,7 @@ const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const enforce = require('express-sslify');
 
 require('./models/event');
 mongoose.model('events');
@@ -12,6 +13,7 @@ mongoose.model('events');
 const port = process.env.PORT || 3000;
 
 let app = express();
+app.use(enforce.HTTPS({trustProtoHeader: true}));
 
 const events = require('./routes/events');
 const misc = require('./routes/misc');
