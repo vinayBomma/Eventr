@@ -13,7 +13,8 @@ mongoose.model('events');
 const port = process.env.PORT || 2000;
 
 let app = express();
-// app.use(enforce.HTTPS({trustProtoHeader: true}));
+
+app.use(enforce.HTTPS({trustProtoHeader: true}));
 
 const events = require('./routes/events');
 const misc = require('./routes/misc');
