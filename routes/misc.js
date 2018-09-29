@@ -19,6 +19,11 @@ router.get('/bug', (req, res) => {
     res.render('Report Bug!');
 });
 
+router.use((req, res, next) => {
+    res.status(404);
+    res.render('404');
+});
+
 // router.post('/feedback', (req, res) => {
 //     if (req.body.name === '' || req.body.email === ''|| req.body.message === '') {
 //         res.send('Dont act smart dickhead!');

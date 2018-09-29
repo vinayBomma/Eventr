@@ -10,7 +10,7 @@ const enforce = require('express-sslify');
 require('./models/event');
 mongoose.model('events');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 2000;
 
 let app = express();
 app.use(enforce.HTTPS({trustProtoHeader: true}));
@@ -34,15 +34,6 @@ app.engine('handlebars', exphbs({
     defaultLayout: 'main',
 }));
 app.set('view engine', 'handlebars');
-
-// app.delete('/:id', (req, res) => {
-//     Event.remove({_id: req.params.id})
-//         .then(() => {
-//             res.redirect('/');
-//         }).catch((err) => {
-//         res.status(400).send('Error', err)
-//     });
-// });
 
 app.use('/', events);
 app.use('/', misc);

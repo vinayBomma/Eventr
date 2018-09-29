@@ -1,8 +1,8 @@
 {
-  "short_name": "since",
-  "name": "Events In Days",
+  "short_name": "Eventr",
+  "name": "Eventr",
   "orientation": "portrait",
-  "description": "Since Is A Days Counter App. Keep Track Of Your Future and Past Events with Since.",
+  "description": "Eventr Is A Days Counter App. Keep Track Of Your Future and Past Events with Eventr.",
   "theme_color": "#00acc1",
   "background_color": "#385e63",
   "display": "standalone",
