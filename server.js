@@ -10,7 +10,7 @@ const enforce = require('express-sslify');
 require('./models/event');
 mongoose.model('events');
 
-const port = process.env.PORT || 2000;
+const port = process.env.PORT || 3000;
 
 let app = express();
 app.use(enforce.HTTPS({trustProtoHeader: true}));
