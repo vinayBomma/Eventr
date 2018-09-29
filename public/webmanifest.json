@@ -1,8 +1,15 @@
 {
+<<<<<<< HEAD
   "short_name": "Eventr",
   "name": "Eventr",
   "orientation": "portrait",
   "description": "Eventr Is A Days Counter App. Keep Track Of Your Future and Past Events with Eventr.",
+=======
+  "short_name": "Eventrr",
+  "name": "Eventrr",
+  "orientation": "portrait",
+  "description": "Eventrr Is A Days Counter App. Keep Track Of Your Future and Past Events with Eventrr.",
+>>>>>>> 79ff5f08d2afbe3acbeb5e2245c2d16ea0d090a7
   "theme_color": "#00acc1",
   "background_color": "#385e63",
   "display": "standalone",

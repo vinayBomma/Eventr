@@ -7,7 +7,6 @@ const eventName = document.getElementById('event_name');
 const submitBtn = document.querySelector('.submit_btn');
 const deleteBtn = document.querySelector('.delete_btn');
 const dateCardArray = Array.prototype.slice.call(document.querySelectorAll('.dateCard'));
-console.log(`DateArray is ${dateCardArray}`);
 const dateCard = document.querySelectorAll('.dateCard')[0];
 
 // -------------------------------- Counter Logic ----------------------------
