@@ -1,7 +1,7 @@
 {
-  "name": "since",
+  "name": "Eventr",
   "version": "1.0.0",
-  "description": "Keep Track of Your Future & Past Events with Since",
+  "description": "Keep Track of Your Future & Past Events with Eventr",
   "main": "server.js",
   "scripts": {
     "test": "",
