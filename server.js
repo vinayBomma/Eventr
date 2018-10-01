@@ -17,7 +17,7 @@ let app = express();
 // app.use(enforce.HTTPS({trustProtoHeader: true}));
 
 const events = require('./routes/events');
-const user = require('./routes/user');
+const users = require('./routes/users');
 const misc = require('./routes/misc');
 
 
@@ -39,7 +39,7 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 
 app.use('/', events);
-app.use('/', user);
+app.use('/', users);
 app.use('/', misc);
 
 app.listen(port, () => {
