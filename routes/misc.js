@@ -15,9 +15,13 @@ router.get('/feedback', (req, res) => {
     res.render('feedback')
 });
 
-router.get('/bug', (req, res) => {
-    res.render('Report Bug!');
+router.get('/test', (req, res) => {
+    res.send('This is test here!')
 });
+
+// router.get('/bug', (req, res) => {
+//     res.render('bug');
+// });
 
 router.use((req, res, next) => {
     res.status(404);

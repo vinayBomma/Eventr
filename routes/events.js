@@ -14,10 +14,6 @@ router.get('/', (req, res) => {
         });
 });
 
-// router.get('/webmanifest.json', (req, res) => {
-//    res.send('awesome')
-// });
-
 router.post('/', (req, res) => {
     let dateVal = new Date(req.body.date + ' ' + req.body.time + ':00').getTime();
     const newEvent = {

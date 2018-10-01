@@ -10,14 +10,16 @@ const enforce = require('express-sslify');
 require('./models/event');
 mongoose.model('events');
 
-const port = process.env.PORT || 2000;
+const port = process.env.PORT || 3000;
 
 let app = express();
 
-app.use(enforce.HTTPS({trustProtoHeader: true}));
+// app.use(enforce.HTTPS({trustProtoHeader: true}));
 
 const events = require('./routes/events');
+const user = require('./routes/user');
 const misc = require('./routes/misc');
+
 
 // mongoose.connect('mongodb://localhost:27017/since')
 mongoose.connect("mongodb://vinayBomma:CzC981ipjnp0@ds233320.mlab.com:33320/since")
@@ -37,6 +39,7 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 
 app.use('/', events);
+app.use('/', user);
 app.use('/', misc);
 
 app.listen(port, () => {
