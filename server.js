@@ -13,11 +13,11 @@ const passport = require('passport');
 require('./models/event');
 mongoose.model('events');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 1000;
 
 let app = express();
 
-app.use(enforce.HTTPS({trustProtoHeader: true}));
+// app.use(enforce.HTTPS({trustProtoHeader: true}));
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());

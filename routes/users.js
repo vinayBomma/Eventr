@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const router = express.Router();
+const {ensureAuthenticated} = require('../helpers/auth');
 
 require('../models/user');
 const User = mongoose.model('users');
@@ -72,6 +73,12 @@ router.post('/register', (req, res) => {
             });
 
     }
+});
+
+router.get('/logout', ensureAuthenticated, (req, res) => {
+    req.logout();
+    req.flash('success_msg', 'Logout successful');
+    res.redirect('/login');
 });
 
 module.exports = router;

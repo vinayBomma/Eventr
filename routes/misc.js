@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
+const {ensureAuthenticated} = require('../helpers/auth');
 
 router.use(bodyParser.urlencoded({extended: false}));
 router.use(bodyParser.json());
@@ -11,12 +12,8 @@ router.get('/about', (req, res) => {
     res.render('about');
 });
 
-router.get('/feedback', (req, res) => {
+router.get('/feedback', ensureAuthenticated, (req, res) => {
     res.render('feedback')
-});
-
-router.get('/test', (req, res) => {
-    res.send('This is test here!')
 });
 
 // router.get('/bug', (req, res) => {
