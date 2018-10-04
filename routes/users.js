@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const passport = require('passport');
 const router = express.Router();
 
 require('../models/user');
@@ -14,36 +15,44 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+router.post('/login', (req, res, next) => {
+    passport.authenticate('local', {
+        successRedirect:'/',
+        failureRedirect:'/login',
+        failureFlash: true
+    })(req, res, next)
+});
+
 router.post('/register', (req, res) => {
     let errors = [];
 
-    if (req.body.userPassword !== req.body.userPassword2) {
+    if (req.body.password !== req.body.password2) {
         errors.push({
             text: "Passwords do not match"
         });
-    } else if (req.body.userPassword.length <= 7) {
+    } else if (req.body.password.length <= 7) {
         errors.push({
-            text: "Password should have atleast 8 characters"
+            text: "Password should have at least 8 characters"
         });
     }
 
     if (errors.length > 0) {
         res.render('register', {
             errors: errors,
-            userName: req.body.userName,
-            userEmail: req.body.userEmail,
-            userPassword: req.body.userPassword,
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password,
         })
     } else {
-        User.findOne({email: req.body.userEmail})
+        User.findOne({email: req.body.email})
             .then(user => {
                 if (user) {
                     res.send('Email already registered');
                 } else {
                     const newUser = {
-                        name: req.body.userName,
-                        email: req.body.userEmail,
-                        password: req.body.userPassword,
+                        name: req.body.username,
+                        email: req.body.email,
+                        password: req.body.password,
                     };
 
                     bcrypt.genSalt(10, (err, salt) => {

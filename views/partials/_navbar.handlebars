@@ -25,5 +25,12 @@
     <!--<div class="divider"></div>-->
     <!--<li><a href="/bug"><i class="material-icons waves-effect">bug_report</i>Report Bug</a></li>-->
     <li><a href="/feedback"><i class="material-icons waves-effect">feedback</i>Feedback</a></li>
-    <li><a href="/about"><i class="material-icons waves-effect">info</i>About</a></li>
+    {{#if user}}
+        <li><a href="/about"><i class="material-icons waves-effect">info</i>About</a></li>
+    {{else}}
+        <li><a href="/login"><i class="material-icons waves-effect">info</i>Login</a></li>
+        <li><a href="/register"><i class="material-icons waves-effect">info</i>Register</a></li>
+
+    {{/if}}
+
 </ul>

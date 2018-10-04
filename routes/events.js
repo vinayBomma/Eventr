@@ -23,6 +23,7 @@ router.post('/', (req, res) => {
 
     new Event(newEvent).save()
         .then(() => {
+            req.flash('success_msg', 'Event Added');
             res.redirect('/');
         }).catch((err) => {
         res.status(400).send('Error', err)
@@ -33,6 +34,7 @@ router.post('/', (req, res) => {
 router.delete('/:id', (req, res) => {
     Event.remove({_id: req.params.id})
         .then(() => {
+            req.flash('success_msg', 'Event removed');
             res.redirect('/');
         }).catch((err) => {
         res.status(400).send('Error', err)
