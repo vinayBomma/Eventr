@@ -26,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const events = require('./routes/events');
 const users = require('./routes/users');
+const auth = require('./routes/auth');
 const misc = require('./routes/misc');
 
 require('./config/passport')(passport);
@@ -63,6 +64,7 @@ app.set('view engine', 'handlebars');
 
 app.use('/', events);
 app.use('/', users);
+app.use('/auth', auth);
 app.use('/', misc);
 
 app.listen(port, () => {
