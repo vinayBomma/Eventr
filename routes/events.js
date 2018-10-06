@@ -36,10 +36,10 @@ router.post('/', ensureAuthenticated, (req, res) => {
 router.delete('/:id', ensureAuthenticated, (req, res) => {
     Event.remove({_id: req.params.id})
         .then(() => {
-            if (event.id != req.user.id){
+            if (event.id !== req.user.id) {
                 req.flash('error_msg', 'Not authorized');
                 res.redirect('/')
-            }else{
+            } else {
                 req.flash('success_msg', 'Event removed');
                 res.redirect('/');
             }

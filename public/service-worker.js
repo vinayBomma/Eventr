@@ -3,10 +3,8 @@ self.addEventListener('install', function (e) {
     e.waitUntil(
         caches.open('since').then(function (cache) {
             return cache.addAll([
-                // '/?homescreen=1',
-                // '/js/app.js',
-                // '/js/init.js',
-                // '/css/main.css'
+                '/?homescreen=1',
+                '/css/main.css'
             ])
         })
     )

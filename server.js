@@ -6,13 +6,16 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const session = require('express-session');
+const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
 const enforce = require('express-sslify');
 const passport = require('passport');
+const keys = require('./config/keys');
 
-require('./models/event');
-mongoose.model('events');
+// require('./models/event');
+// mongoose.model('events');
 
+// require('./models/googleUser');
 const port = process.env.PORT || 1000;
 
 let app = express();
@@ -32,11 +35,13 @@ const misc = require('./routes/misc');
 require('./config/passport')(passport);
 
 // mongoose.connect('mongodb://localhost:27017/since')
-mongoose.connect("mongodb://vinayBomma:CzC981ipjnp0@ds233320.mlab.com:33320/since")
+mongoose.connect(keys.mongoURI)
     .then(() => console.log('MongoDB connected!'))
     .catch((e) => console.log("MongoDB couldn't connect", e));
 
 app.use(methodOverride('_method'));
+
+app.use(cookieParser());
 
 app.use(session({
     secret: 'secret',
