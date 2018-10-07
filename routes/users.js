@@ -13,7 +13,11 @@ router.get('/register', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-    res.render('login');
+    if (req.user){
+        res.redirect('/');
+    }else{
+        res.render('login');
+    }
 });
 
 // router.get('/auth/google', passport.authenticate('google', {scope: ['profile', 'email']}));

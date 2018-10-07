@@ -12,10 +12,8 @@ const enforce = require('express-sslify');
 const passport = require('passport');
 const keys = require('./config/keys');
 
-// require('./models/event');
-// mongoose.model('events');
+require('./models/googleUser');
 
-// require('./models/googleUser');
 const port = process.env.PORT || 1000;
 
 let app = express();
@@ -45,8 +43,8 @@ app.use(cookieParser());
 
 app.use(session({
     secret: 'secret',
-    saveUninitialized: true,
-    resave: true,
+    saveUninitialized: false,
+    resave: false,
 }));
 
 app.use(passport.initialize());
