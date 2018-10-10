@@ -19,4 +19,5 @@ const googleSchema = new Schema({
     }
 });
 
-mongoose.model('googleUsers', googleSchema);
+const GoogleUser = mongoose.model('googleUsers', googleSchema);
+module.exports = GoogleUser;

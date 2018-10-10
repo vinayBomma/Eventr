@@ -20,8 +20,6 @@ router.get('/login', (req, res) => {
     }
 });
 
-// router.get('/auth/google', passport.authenticate('google', {scope: ['profile', 'email']}));
-
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
         successRedirect:'/',

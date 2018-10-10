@@ -1,18 +1,25 @@
 const path = require('path');
-
 const express = require('express');
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
-const session = require('express-session');
+// const session = require('express-session');
+const cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
 const enforce = require('express-sslify');
 const passport = require('passport');
+const passportSetup = require('./config/passport');
+const passportSetupLocal = require('./config/passportLocal');
 const keys = require('./config/keys');
 
-require('./models/googleUser');
+const events = require('./routes/events');
+const users = require('./routes/users');
+const auth = require('./routes/auth');
+const misc = require('./routes/misc');
+
+// require('./models/googleUser');
 
 const port = process.env.PORT || 1000;
 
@@ -25,27 +32,24 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-const events = require('./routes/events');
-const users = require('./routes/users');
-const auth = require('./routes/auth');
-const misc = require('./routes/misc');
-
-require('./config/passport')(passport);
-
-// mongoose.connect('mongodb://localhost:27017/since')
 mongoose.connect(keys.mongoURI)
     .then(() => console.log('MongoDB connected!'))
     .catch((e) => console.log("MongoDB couldn't connect", e));
 
 app.use(methodOverride('_method'));
 
-app.use(cookieParser());
+// app.use(cookieParser());
 
-app.use(session({
-    secret: 'secret',
-    saveUninitialized: false,
-    resave: false,
+app.use(cookieSession({
+    maxAge: 24 * 60 * 60 * 1000,
+    keys: ['secret']
 }));
+
+// app.use(session({
+//     secret: 'secret',
+//     saveUninitialized: false,
+//     resave: false,
+// }));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -63,6 +67,7 @@ app.use((req,res, next) => {
 app.engine('handlebars', exphbs({
     defaultLayout: 'main',
 }));
+
 app.set('view engine', 'handlebars');
 
 app.use('/', events);
