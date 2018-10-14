@@ -3,6 +3,6 @@
 {{/if}}
 
 {{#each errors}}
-    <div>{{text}}</div>
+    <div onload="M.toast({html: 'Errarta'})">{{text}}</div>
 {{else}}
 {{/each}}

@@ -1,55 +1,45 @@
-const LocalStrategy = require('passport-local').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const TwitterStrategy = require('passport-twitter').Strategy;
+const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const keys = require('./keys');
-const GoogleUser = require('../models/googleUser');
-// const User = require('../models/user');
-
+const User = require('../models/user');
 
 passport.serializeUser(function (user, done) {
     done(null, user.id);
 });
 
-// passport.deserializeUser(function (id, done) {
-//     User.findById(id, function (err, user) {
-//         done(err, user);
-//     });
-// });
-
 passport.deserializeUser((id, done) => {
-    GoogleUser.findById(id, function (err, user) {
+    User.findById(id, function (err, user) {
         done(err, user);
     })
-    // .then(user => done(null, user));
 });
 
+passport.use(
+    new LocalStrategy({usernameField: 'email'}, (email, password, done) => {
+        User.findOne({
+            email: email,
+        }).then(user => {
+            if (!user) {
+                return done(null, false, {
+                    message: 'No user found'
+                });
+            }
 
-// passport.use(
-//     new LocalStrategy({usernameField: 'email'}, (email, password, done) => {
-//         User.findOne({
-//             email: email,
-//         }).then(user => {
-//             if (!user) {
-//                 return done(null, false, {
-//                     message: 'No user found'
-//                 });
-//             }
-//
-//             bcrypt.compare(password, user.password, (err, isMatch) => {
-//                 if (err) throw err;
-//
-//                 if (isMatch) {
-//                     return done(null, user);
-//                 } else {
-//                     return done(null, false, {
-//                         message: 'Password Wrong'
-//                     })
-//                 }
-//             })
-//         })
-//     }));
+            bcrypt.compare(password, user.password, (err, isMatch) => {
+                if (err) throw err;
 
+                if (isMatch) {
+                    return done(null, user);
+                } else {
+                    return done(null, false, {
+                        message: 'Password Wrong'
+                    })
+                }
+            })
+        })
+    }));
 
 
 passport.use(
@@ -59,26 +49,56 @@ passport.use(
         callbackURL: 'http://localhost:1000/auth/google/callback',
         // proxy: true,
     }, (accessToken, refreshToken, profile, done) => {
-        const image = profile.photos[0].value.substring(0, profile.photos[0].value.indexOf('?'));
-        const email = JSON.stringify(profile.emails[0]);
 
-        const newgoogleUser = {
-            googleID: profile.id,
-            email: email,
-            firstName: profile.name.givenName,
-            lastName: profile.name.familyName,
+        const image = profile.photos[0].value.substring(0, profile.photos[0].value.indexOf('?'));
+
+        const newUser = {
+            userID: profile.id,
+            email: profile.emails[0].value,
+            displayName: profile.displayName,
             image: image,
         };
 
-        GoogleUser.findOne({
-            googleID: profile.id
+        User.findOne({
+            userID: profile.id
         }).then(user => {
+
             if (user) {
                 done(null, user);
             } else {
-                new GoogleUser(newgoogleUser).save()
+                new User(newUser).save()
                     .then(user => done(null, user))
             }
+
         })
 
+    }));
+
+passport.use(
+    new TwitterStrategy({
+        consumerKey: keys.twitterClientID,
+        consumerSecret: keys.twitterClientSecret,
+        callbackURL: 'http://localhost:1000/auth/twitter/callback',
+    }, (accessToken, refreshToken, profile, done) => {
+
+        const image = `${profile.photos[0].value.substring(0, profile.photos[0].value.lastIndexOf('_'))}.jpg`;
+
+        const newUser = {
+            userID: profile.id,
+            displayName: profile.displayName,
+            image: image,
+        };
+
+        User.findOne({
+            userID: profile.id
+        }).then(user => {
+
+            if (user) {
+                done(null, user)
+            } else {
+                new User(newUser).save()
+                    .then(user => done(null, user))
+            }
+
+        })
     }));

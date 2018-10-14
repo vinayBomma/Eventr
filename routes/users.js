@@ -4,15 +4,13 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const router = express.Router();
 const {ensureAuthenticated} = require('../helpers/auth');
-
-require('../models/user');
-const User = mongoose.model('users');
+const User = require('../models/user');
 
 router.get('/register', (req, res) => {
     res.render('register');
 });
 
-router.get('/login', (req, res) => {
+router.get('/login',(req, res) => {
     if (req.user){
         res.redirect('/');
     }else{
@@ -55,7 +53,7 @@ router.post('/register', (req, res) => {
                     res.send('Email already registered');
                 } else {
                     const newUser = {
-                        name: req.body.username,
+                        displayName: req.body.username,
                         email: req.body.email,
                         password: req.body.password,
                     };

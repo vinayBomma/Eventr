@@ -43,8 +43,8 @@ router.delete('/:id', ensureAuthenticated, (req, res) => {
                 req.flash('success_msg', 'Event removed');
                 res.redirect('/');
             }
-        }).catch((err) => {
-        res.status(400).send('Error', err)
+        }).catch(() => {
+        res.status(400).send('Error')
     });
 });
 
