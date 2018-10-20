@@ -23,7 +23,7 @@ passport.use(
         }).then(user => {
             if (!user) {
                 return done(null, false, {
-                    message: 'No user found'
+                    message: 'Incorrect Email Or Password'
                 });
             }
 
@@ -34,7 +34,7 @@ passport.use(
                     return done(null, user);
                 } else {
                     return done(null, false, {
-                        message: 'Password Wrong'
+                        message: 'Incorrect Email Or Password'
                     })
                 }
             })
@@ -47,7 +47,6 @@ passport.use(
         clientID: keys.googleClientID,
         clientSecret: keys.googleClientSecret,
         callbackURL: 'http://localhost:1000/auth/google/callback',
-        // proxy: true,
     }, (accessToken, refreshToken, profile, done) => {
 
         const image = profile.photos[0].value.substring(0, profile.photos[0].value.indexOf('?'));

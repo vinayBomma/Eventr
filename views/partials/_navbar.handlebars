@@ -7,14 +7,16 @@
 
 <ul id="slide-out" class="sidenav">
     <li>
-        <div class="user-view">
-            <div class="background">
-                <img src="media/chalkboard.jpg">
+        {{#if req.user}}
+            <div class="user-view">
+                <div class="background">
+                    <img src="media/chalkboard.jpg">
+                </div>
+
+                <img class="circle" src="{{user.image}}">
+                <span class="white-text name">{{user.displayName}}</span>
             </div>
-            <img class="circle" src="media/tennis.jpg">
-            <span class="white-text name">John Doe</span>
-            <span class="white-text email"></span>
-        </div>
+        {{/if}}
     </li>
     <li><a href="/"><i class="material-icons waves-effect">home</i>Home</a></li>
     <!--<li><a href="/past"><i class="material-icons waves-effect">calendar</i>Past Events</a></li>-->

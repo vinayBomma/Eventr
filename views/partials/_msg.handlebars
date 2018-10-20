@@ -1,9 +1,8 @@
 {{#if success_msg}}
-    <div>{{success_msg}}</div>
+    <div class="flash flash-success">{{success_msg}}</div>
 
 {{/if}}
 
 {{#if error_msg}}
-    <div onload="M.toast({html: 'Errarta'})">{{error_msg}}</div>
-
+    <div class="flash flash-error">{{error_msg}}</div>
 {{/if}}

@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const session = require('express-session');
-// const cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
 const enforce = require('express-sslify');

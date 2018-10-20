@@ -1,8 +1,8 @@
 {{#if error}}
-    <div>{{error}}</div>
+    <div class="flash flash-error">{{error}}</div>
 {{/if}}
 
 {{#each errors}}
-    <div onload="M.toast({html: 'Errarta'})">{{text}}</div>
+    <div class="flash flash-error">{{text}}</div>
 {{else}}
 {{/each}}

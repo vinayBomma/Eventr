@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/flash.css">
     <link rel="manifest" href="webmanifest.json">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -23,41 +24,24 @@
 
 <body>
 {{> _errors}}
+{{> _msg}}
 
 {{{body}}}
 
-{{> _msg}}
+<!-------------------------- GOOGLE ANALYTICS ------------------------------------->
 
-<!--&lt;!&ndash;------------------------ GOOGLE ANALYTICS -----------------------------------&ndash;&gt;-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117782369-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
 
-<!--&lt;!&ndash; Global site tag (gtag.js) - Google Analytics &ndash;&gt;-->
-<!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117782369-2"></script>-->
-<!--<script>-->
-    <!--window.dataLayer = window.dataLayer || [];-->
+    function gtag() {
+        dataLayer.push(arguments);
+    }
 
-    <!--function gtag() {-->
-        <!--dataLayer.push(arguments);-->
-    <!--}-->
+    gtag('js', new Date());
 
-    <!--gtag('js', new Date());-->
-
-    <!--gtag('config', 'UA-117782369-2');-->
-<!--</script>-->
-
-<!-- -------------------------------  FIREBASE INIT --------------------------------->
-
-<!--<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>-->
-<!--<script>-->
-    <!--var config = {-->
-        <!--apiKey: "AIzaSyAQOb5cIHYdvPjBpqgYqnpMfOKKMEoWd_k",-->
-        <!--authDomain: "sincedaysapp.firebaseapp.com",-->
-        <!--databaseURL: "https://sincedaysapp.firebaseio.com",-->
-        <!--projectId: "sincedaysapp",-->
-        <!--storageBucket: "",-->
-        <!--messagingSenderId: "185299716511"-->
-    <!--};-->
-    <!--firebase.initializeApp(config);-->
-<!--</script>-->
+    gtag('config', 'UA-117782369-2');
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
