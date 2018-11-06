@@ -3,27 +3,41 @@
 <div class="row">
     <h4 class="center-align">Login</h4>
     <form method="post" action="/login">
-        <div class="row">
+        <div class="row" style="margin-left: 10%; margin-top: 5%">
             <div class="input-field col s10 m8 l6 xl4">
                 <i class="material-icons prefix">email</i>
-                <input id="user_email" type="email" name="email" placeholder="jon@snow.com" class="validate" required>
+                <input id="user_email" type="email" name="email" placeholder="elon@musk.com" class="validate" required>
                 <label for="user_email">Email</label>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" style="margin-left: 10%; margin-top: 5%">
             <div class="input-field col s10 m8 l6 xl4">
                 <i class="material-icons prefix">security</i>
-                <input id="user_password" type="password" name="password" placeholder="Password" class="validate"
+                <input id="user_password" type="password" name="password" placeholder="elonmusk123" class="validate"
                        required>
                 <label for="user_password">Password</label>
             </div>
         </div>
 
-        <div class="center-align">
+        <div style="margin-left: 12%; margin-top: 5%">
             <button class="btn waves-effect waves-light" type="submit">Submit
                 <i class="material-icons right">send</i>
             </button>
         </div>
+
     </form>
+    <div style="margin-left: 12%; margin-top: 5%">
+        <a href="auth/google">
+            <button class="btn waves-effect waves-light red darken-3">Login With Google
+            </button>
+        </a>
+    </div>
+
+    <div style="margin-left: 12%; margin-top: 5%">
+        <a href="auth/twitter">
+            <button class="btn waves-effect waves-light light-blue lighten-1">Login With Twitter
+            </button>
+        </a>
+    </div>
 </div>
