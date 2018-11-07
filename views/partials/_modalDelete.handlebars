@@ -5,15 +5,15 @@
                 <h5>Are You Sure You Want To Delete The Event?</h5>
             </div>
         </div>
-        
+
         <div class="modal-footer">
-            <form method="post" action="/{{id}}?_method=DELETE">
+            <!--<form method="post" action="/{{id}}?_method=DELETE">-->
                 <button class="modal-action modal-close waves-effect waves-light btn" type="button">No</button>
-                <input type="hidden" name="_method" value="DELETE">
-                <button class="modal-action modal-close waves-effect waves-light btn delete_btn" type="submit"
+                <!--<input type="hidden" name="_method" value="DELETE">-->
+                <button class="modal-action modal-close waves-effect waves-light btn" type="submit"
                         value="DELETE">Yes
                 </button>
-            </form>
+            <!--</form>-->
         </div>
     </div>
 {{/each}}

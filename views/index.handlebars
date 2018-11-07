@@ -30,10 +30,16 @@
                         <hr class="style14">
                         <p class="center-align card_event_name">{{title}}</p>
                     </div>
-                    <div class="modal-footer">
-                        <a class="btn modal-trigger" href="#modal2">
-                            <i class="small material-icons">delete</i>
-                        </a>
+                    <div>
+                        <form method="post" action="/{{id}}?_method=DELETE">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button class="btn modal-trigger" onclick="return confirm('are you sure?')" type="submit">
+                                <i class="small material-icons">delete</i>
+                            </button>
+                            <!--<a class="modal-trigger" href="#modal2">-->
+                                <!--<i class="small material-icons">delete</i>-->
+                            <!--</a>-->
+                        </form>
                     </div>
                 </div>
             </div>

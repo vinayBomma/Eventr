@@ -25,7 +25,6 @@ router.post('/', ensureAuthenticated, (req, res) => {
 
     new Event(newEvent).save()
         .then(() => {
-            // req.flash('success_msg', 'Event Added');
             res.redirect('/');
         }).catch((err) => {
         res.status(400).send('Error', err)
@@ -36,17 +35,8 @@ router.post('/', ensureAuthenticated, (req, res) => {
 router.delete('/:id', ensureAuthenticated, (req, res) => {
     Event.remove({_id: req.params.id})
         .then(() => {
-            // if (event.id !== req.user.id) {
-            //     req.flash('error_msg', 'Not Authorized');
-            //     res.redirect('/')
-            // } else {
-            //     req.flash('success_msg', 'Event Removed');
-            //     res.redirect('/');
-            // }
             res.redirect('/');
-        }).catch((e => {
-            res.status(400).send('Error: ', e)
-    }));
+        })
 });
 
 module.exports = router;
