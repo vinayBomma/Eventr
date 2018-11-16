@@ -8,13 +8,13 @@ router.get('/auth/google', passport.authenticate('google',
 router.get('/auth/twitter', passport.authenticate('twitter'));
 
 router.get('/auth/google/callback',
-    passport.authenticate('google', {failureRedirect: 'http://localhost:1000/register'}), (req, res) => {
-        res.redirect('http://localhost:1000/');
+    passport.authenticate('google', {failureRedirect: 'http://eventrr.herokuapp.com/register'}), (req, res) => {
+        res.redirect('http://eventrr.herokuapp.com/');
     });
 
 router.get('/auth/twitter/callback',
-    passport.authenticate('twitter', {failureRedirect: 'http://localhost:1000/register/twitter'}), (req, res) => {
-        res.redirect('http://localhost:1000/');
+    passport.authenticate('twitter', {failureRedirect: 'http://eventrr.herokuapp.com/register/'}), (req, res) => {
+        res.redirect('http://eventrr.herokuapp.com/');
     });
 
 module.exports = router;

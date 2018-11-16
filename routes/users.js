@@ -73,6 +73,7 @@ router.post('/register', (req, res) => {
 
                             new User(newUser).save()
                                 .then(() => {
+                                    req.flash('success_msg', 'Please Login Again');
                                     res.redirect('/login');
                                 }).catch((err) => {
                                 res.status(400).send(err);
