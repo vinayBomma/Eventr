@@ -8,14 +8,21 @@ const {ensureAuthenticated} = require('../helpers/auth');
 const User = require('../models/user');
 
 router.get('/register', (req, res) => {
-    res.render('register');
+    res.render('register', {
+        userName: req.body.username,
+        userEmail: req.body.email,
+        userPassword: req.body.password,
+        text: 'Register'
+    });
 });
 
 router.get('/login',(req, res) => {
     if (req.user){
         res.redirect('/');
     }else{
-        res.render('login');
+        res.render('login', {
+            text: 'Login',
+        });
     }
 });
 

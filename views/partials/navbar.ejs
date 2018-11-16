@@ -7,26 +7,28 @@
 
 <ul id="slide-out" class="sidenav">
     <li>
-        {{#if user}}
+        <% if (user) { %>
             <div class="user-view">
                 <div class="background">
                     <img src="media/chalkboard.jpg">
                 </div>
 
-                <!--<img class="circle" src="{{user.image}}">-->
-                <span class="white-text name">{{user.displayName}}</span>
+                <img class="circle" src="<% user.image %>">
+                <span class="white-text name">
+                    <% user.displayName %>
+                </span>
             </div>
-        {{/if}}
+        <% } %>
     </li>
     <li><a href="/"><i class="material-icons waves-effect">home</i>Home</a></li>
     <li><a href="/feedback"><i class="material-icons waves-effect">feedback</i>Feedback</a></li>
-    {{#if user}}
+    <% if (user) { %>
         <li><a href="/about"><i class="material-icons waves-effect">info</i>About</a></li>
-        <li><a href="/logout"><i class="material-icons waves-effect">arrow_back</i>Logout</a></li>
-    {{else}}
-        <li><a href="/login"><i class="material-icons waves-effect">arrow_forward</i>Login</a></li>
-        <li><a href="/register"><i class="material-icons waves-effect">assignment_ind</i>Register</a></li>
+        <li><a href="/logout"><i class="material-icons waves-effect">info</i>Logout</a></li>
+    <% } else { %>
+        <li><a href="/login"><i class="material-icons waves-effect">info</i>Login</a></li>
+        <li><a href="/register"><i class="material-icons waves-effect">info</i>Register</a></li>
 
-    {{/if}}
+    <% } %>
 
 </ul>

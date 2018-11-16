@@ -1,10 +1,11 @@
 importScripts('/cache-polyfill.js');
 self.addEventListener('install', function (e) {
     e.waitUntil(
-        caches.open('since').then(function (cache) {
+        caches.open('eventr').then(function (cache) {
             return cache.addAll([
-                '/?homescreen=1',
-                '/css/main.css'
+                '/css/main.css',
+                '/js/app.js',
+                '/js/init.js'
             ])
         })
     )
@@ -12,8 +13,22 @@ self.addEventListener('install', function (e) {
 
 self.addEventListener('fetch', function (event) {
     event.respondWith(
-        caches.match(event.request).then(function (response) {
-            return response || fetch(event.request);
+        caches.match(event.request)
+            .then(function (response) {
+                if (response) {
+                    return response;
+                } else {
+                    return fetch(event.request)
+                        // .then(function (res) {
+                        //     return caches.open('eventr-dynamic')
+                        //         .then(function (cache) {
+                        //             cache.put(event.request.url, res.clone());
+                        //             return res;
+                        //         })
+                        // })
+                }
+            }).catch(function (err) {
+
         })
     );
 });

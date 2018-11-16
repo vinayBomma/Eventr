@@ -1,0 +1,19 @@
+<% events.forEach(function (event) { %>
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <div class="row">
+            <h5>Are You Sure You Want To Delete The Event?</h5>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <form method="post" action="/<%= event.id %>?_method=DELETE">
+        <button class="modal-action modal-close waves-effect waves-light btn" type="button">No</button>
+        <input type="hidden" name="_method" value="DELETE">
+        <button class="modal-action modal-close waves-effect waves-light btn" type="submit"
+                value="DELETE">Yes
+        </button>
+        <!--</form>-->
+    </div>
+</div>
+<% }) %>

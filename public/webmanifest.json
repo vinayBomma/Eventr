@@ -18,5 +18,5 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/?homescreen=1"
+  "start_url": "/login"
 }

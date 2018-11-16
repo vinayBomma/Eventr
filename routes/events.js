@@ -7,11 +7,22 @@ require('../models/event');
 const Event = mongoose.model('events');
 
 router.get('/', ensureAuthenticated, (req, res) => {
-    Event.find({user: req.user.id})
+    Event.find({user: req.user.id} )
+        // res.render('index', {
+        //     events: data,
+        //     user: req.user,
+        //     text: 'Home',
+        // });
         .then((event) => {
             res.render('index', {
-                event,
-            });
+                    event,
+                    // date: JSON.stringify(Event.schema.obj.date),
+                    // title: JSON.stringify(Event.schema.obj.title),
+                    // eventID: req.id,
+                    // eventUser: event.user,
+                    text: 'Home'
+                }
+            );
         });
 });
 

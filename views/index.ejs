@@ -1,0 +1,48 @@
+<% include partials/head.ejs %>
+<% include partials/navbar.ejs %>
+
+<section>
+    <% include partials/fab.ejs %>
+    <% include partials/event_add.ejs %>
+    <% include partials/event_del.ejs %>
+
+
+    <div class="row event_card">
+        <% if (user) { %>
+            <% events.forEach(function (event) { %>
+                <div class="col s12 m6 l4 xl3 card_details">
+                    <div class="card blue-grey darken-1 hoverable card_height">
+                        <div class="card-content white-text dateCard">
+                            <p class="center-align card_date_count"><%= event.date %></p>
+                        </div>
+                        <div class="card-content white-text titleCard">
+                            <hr class="style14">
+                            <p class="center-align card_event_name"><%= event.title %></p>
+                        </div>
+                        <div>
+                            <!--<form method="post" action="/<%= event.id %>?_method=DELETE">-->
+                            <!--<input type="hidden" name="_method" value="DELETE">-->
+                            <!--<button class="btn modal-trigger" onclick="return confirm('are you sure?')" type="submit">-->
+                            <!--<i class="small material-icons">delete</i>-->
+                            <!--</button>-->
+                            <div class="modal-footer">
+                                <a class="btn modal-trigger" href="#modal2">
+                                    <i class="small material-icons">delete</i>
+                                </a>
+                            </div>
+                            <!--</form>-->
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <div class="row center-align">
+                <div>
+                    <h5>No Events Created Yet</h5>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</section>
+
+<% include partials/bottom.ejs %>

@@ -1,0 +1,64 @@
+<% include partials/head.ejs %>
+<% include partials/navbar.ejs %>
+
+<div class="row">
+    <h4 class="center-align">Account Register</h4>
+    <form action="/register" method="post">
+        <div class="row" style="margin-left: 10%; margin-top: 5%">
+            <div class="input-field input-field col s10 m8 l6 xl4">
+                <i class="material-icons prefix">person</i>
+                <input id="user_name" type="text" name="username" placeholder="Elon Musk" class="validate"
+                       value="<%= userName %>" required>
+                <label for="user_name">Name</label>
+            </div>
+        </div>
+
+        <div class="row" style="margin-left: 10%; margin-top: 5%">
+            <div class="input-field input-field col s10 m8 l6 xl4">
+                <i class="material-icons prefix">email</i>
+                <input id="user_email" type="email" name="email" placeholder="elon@musk.com" class="validate"
+                       value="<%= userEmail %>" required>
+                <label for="user_email">Email</label>
+            </div>
+        </div>
+
+        <div class="row" style="margin-left: 10%; margin-top: 5%">
+            <div class="input-field input-field col s10 m8 l6 xl4">
+                <i class="material-icons prefix">security</i>
+                <input id="user_password" type="password" name="password" placeholder="elonmusk123" class="validate"
+                       value="<%= userPassword %>" required>
+                <label for="user_password">Password</label>
+            </div>
+        </div>
+
+        <div class="row" style="margin-left: 10%; margin-top: 5%">
+            <div class="input-field input-field col s10 m8 l6 xl4">
+                <i class="material-icons prefix">security</i>
+                <input id="user_password2" type="password" name="password2" placeholder="elonmusk123"
+                       class="validate" required>
+                <label for="user_password2">Confirm Password</label>
+            </div>
+        </div>
+
+        <div style="margin-left: 12%; margin-top: 5%">
+            <button class="btn waves-effect waves-light" type="submit">Submit
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+    </form>
+    <div style="margin-left: 12%; margin-top: 5%">
+        <a href="auth/google">
+            <button class="btn waves-effect waves-light red darken-3">Login With Google
+            </button>
+        </a>
+    </div>
+
+    <div style="margin-left: 12%; margin-top: 5%">
+        <a href="auth/twitter">
+            <button class="btn waves-effect waves-light light-blue lighten-1">Login With Twitter
+            </button>
+        </a>
+    </div>
+</div>
+
+<% include partials/bottom.ejs %>

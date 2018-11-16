@@ -21,7 +21,7 @@ const port = process.env.PORT || 1000;
 
 let app = express();
 
-// app.use(enforce.HTTPS({trustProtoHeader: true}));
+app.use(enforce.HTTPS({trustProtoHeader: true}));
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -65,6 +65,7 @@ app.engine('handlebars', exphbs({
 }));
 
 app.set('view engine', 'handlebars');
+// app.set('view engine', 'ejs');
 
 app.use('/', events);
 app.use('/', users);
