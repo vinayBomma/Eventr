@@ -46,7 +46,7 @@ passport.use(
     new GoogleStrategy({
         clientID: keys.googleClientID,
         clientSecret: keys.googleClientSecret,
-        callbackURL: 'http://localhost:1000/auth/google/callback',
+        callbackURL: 'http://eventrr.herokuapp.com/auth/google/callback',
     }, (accessToken, refreshToken, profile, done) => {
 
         const image = profile.photos[0].value.substring(0, profile.photos[0].value.indexOf('?'));
@@ -77,7 +77,7 @@ passport.use(
     new TwitterStrategy({
         consumerKey: keys.twitterClientID,
         consumerSecret: keys.twitterClientSecret,
-        callbackURL: 'http://localhost:1000/auth/twitter/callback',
+        callbackURL: 'http://eventrr.herokuapp.com/auth/twitter/callback',
     }, (accessToken, refreshToken, profile, done) => {
 
         const image = `${profile.photos[0].value.substring(0, profile.photos[0].value.lastIndexOf('_'))}.jpg`;
