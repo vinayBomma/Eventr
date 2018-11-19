@@ -1,6 +1,5 @@
 .idea/
 firebase-debug.log
 node_modules
-browserconfig.xml
 package-lock.json
 config/keys.js
