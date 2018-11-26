@@ -21,7 +21,7 @@ const port = process.env.PORT || 1000;
 
 let app = express();
 
-// app.use(enforce.HTTPS({trustProtoHeader: true}));
+app.use(enforce.HTTPS({trustProtoHeader: true}));
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
