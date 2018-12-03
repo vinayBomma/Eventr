@@ -11,7 +11,6 @@ const flash = require('connect-flash');
 const enforce = require('express-sslify');
 const passport = require('passport');
 const passportSetup = require('./config/passport');
-const keys = require('./config/keys');
 const events = require('./routes/events');
 const users = require('./routes/users');
 const auth = require('./routes/auth');
@@ -28,18 +27,13 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-mongoose.connect(keys.mongoURI)
+mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('MongoDB connected!'))
     .catch((e) => console.log("MongoDB couldn't connect", e));
 
 app.use(methodOverride('_method'));
 
 app.use(cookieParser());
-//
-// app.use(cookieSession({
-//     maxAge: 24 * 60 * 60 * 1000,
-//     keys: ['secret']
-// }));
 
 app.use(session({
     secret: 'secret',

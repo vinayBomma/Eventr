@@ -3,7 +3,6 @@ const TwitterStrategy = require('passport-twitter').Strategy;
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
-const keys = require('./keys');
 const User = require('../models/user');
 
 passport.serializeUser(function (user, done) {
@@ -44,8 +43,8 @@ passport.use(
 
 passport.use(
     new GoogleStrategy({
-        clientID: keys.googleClientID,
-        clientSecret: keys.googleClientSecret,
+        clientID: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         callbackURL: 'https://eventrr.herokuapp.com/auth/google/callback',
     }, (accessToken, refreshToken, profile, done) => {
 
@@ -75,8 +74,8 @@ passport.use(
 
 passport.use(
     new TwitterStrategy({
-        consumerKey: keys.twitterClientID,
-        consumerSecret: keys.twitterClientSecret,
+        consumerKey: process.env.TWITTER_API_KEY,
+        consumerSecret: process.env.TWITTER_API_SECRET,
         callbackURL: 'https://eventrr.herokuapp.com/auth/twitter/callback',
     }, (accessToken, refreshToken, profile, done) => {
 
